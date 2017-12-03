@@ -38,7 +38,7 @@ node app.js
 * [materializecss](http://materializecss.com/) 
 * [Angular 4 ](https://angular.io/) 
 * [Node.js](https://nodejs.org/en/) 
-* [mLab] (https://mlab.com/home/)
+* [mLab](https://mlab.com/)
 
 
 

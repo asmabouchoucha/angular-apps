@@ -1,0 +1,88 @@
+<div class="row">
+
+  <div class="col s4 asma " infinite-scroll [infiniteScrollDistance]="2" [infiniteScrollThrottle]="500">
+
+   
+   <!-- Vertically rotating Text   -->
+    <div class="Iam">
+      <b>
+  <div class="innerIam">
+    this is <br/>
+    the list<br/>
+ of local <br />
+     businesses<br />
+
+    
+    
+    </div>
+    </b>
+</div> 
+
+
+
+  <!-- Filters -->
+   <h5>Choose distance in Km </h5>
+   <form action="#"
+   #filterForm="ngForm"
+   (ngSubmit)="setFilter(filterForm.value)">
+    <p class="range-field">  
+      <input type="range" id="test5" name="filter" min="1" max="500" ngModel />
+    </p>
+      <button class="btn waves-effect waves-light" type="submit" name="action">Submit
+    <i class="material-icons right">send</i>
+  </button>
+  </form>
+
+
+  <!-- <ul id='dropdown3' class='dropdown-content'>
+    <li><a (click)="setFilter(10)"> within 50 km </a></li>
+    <li><a (click)="setFilter(100)">within 100 km</a></li>
+    <a (click)="setFilter(100)">within 300 km</a></li>
+  
+  </ul> -->
+  
+ 
+
+    <!-- Items List -->
+    
+<ng-container  *ngFor="let i of commerces?.data" >
+  <!-- Display Only distances <100 km -->
+ <app-item *ngIf="calculateDistance2(i.lat, i.lng)<filter"
+ [Item]="i">
+     </app-item> 
+    </ng-container>
+    
+  </div>
+
+  <!-- Map  -->
+
+  <div class="col s8">
+
+    <div class="form">
+      <input placeholder="search for location" autocorrect="off" autocapitalize="off" spellcheck="off" type="text" class="form-control"
+        #search [formControl]="searchControl">
+    </div>
+    <agm-map  #gm [latitude]="latitude" [longitude]="longitude" [scrollwheel]="false">
+      <div *ngFor="let item of commerces?.data ">
+
+        <agm-marker [latitude]="item?.lat" [longitude]="item?.lng" (markerClick)="initDistance();gm.lastOpen?.close(); gm.lastOpen = infoWindow;">
+
+          <agm-info-window #infoWindow>
+            <a routerLink="{{item?.id}}">
+              <p> <strong> {{item.name}}</strong> </p>
+            </a>
+            <a (click)="calculateDistance(item.lat,item.lng)"><p> Distance </p></a>
+            <ng-container *ngIf="distance !==0" > 
+             <p>  {{distance}} </p>  
+            </ng-container>
+
+          </agm-info-window>
+        </agm-marker>
+      </div>
+
+    </agm-map>
+
+
+
+  </div>
+</div>

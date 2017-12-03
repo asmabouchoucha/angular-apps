@@ -1,0 +1,45 @@
+
+
+<nav class="nav-extended">
+    <div class="nav-wrapper">
+      <a routerLink="/home" routerLinkActive="active"class="brand-logo">Loc an' go </a>
+      <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
+
+      <ul id="nav-mobile" class="right hide-on-med-and-down">
+      
+        <li><a routerLink="/home" routerLinkActive="active">About</a></li>
+        <li><a routerLink="/login" routerLinkActive="active">Login</a></li>
+
+      </ul>
+
+
+    </div>
+    <div class="nav-content">
+      <ul class="tabs tabs-transparent">
+        <li *ngFor="let cat of categories?.data " class="tab">
+          <a [routerLink]="['/categorie',cat?.id]" routerLinkActive="active" >
+            {{cat?.categorie}}
+          </a>
+        </li>
+
+
+
+
+      </ul>
+      <!-- <a class="btn-floating btn-large halfway-fab waves-effect waves-light teal" (click)="searchDisplay()">
+        <i class="material-icons">search</i>
+      </a> -->
+    </div>
+
+  </nav>
+<!-- <nav *ngIf="display==true">
+  <div class="nav-wrapper">
+    <form>
+      <div class="input-field">
+        <input id="search" type="search" required>
+        <label class="label-icon" for="search"><i class="material-icons">search</i></label>
+        <i class="material-icons">close</i>
+      </div>
+    </form>
+  </div>
+</nav> -->

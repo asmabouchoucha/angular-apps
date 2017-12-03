@@ -1,0 +1,18 @@
+.nav-extended {
+  background-color: #151515;
+}
+
+a:link, a:visited {
+    text-decoration: none;
+}
+
+.tabsss {
+  position: relative;
+  overflow-x: auto;
+  overflow-y: hidden;
+  height: 48px;
+  width: 100%;
+  background-color: #fff;
+  margin: 0 auto;
+  white-space: nowrap;
+}
