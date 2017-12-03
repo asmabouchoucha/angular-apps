@@ -42,7 +42,7 @@ node app.js
 
 
 
-## Authors
+## Author
 
 * **Asma Bouchoucha** 
 
